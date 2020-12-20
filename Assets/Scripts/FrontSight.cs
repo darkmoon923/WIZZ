@@ -15,13 +15,13 @@ public class FrontSight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+        Aim();
 
         Cursor.visible = false;
     }
-   private void Shoot()
+   private void Aim()
     {
-        Vector2 ShootingDirection = new Vector2();
+        
         var Pos = Input.mousePosition;
         Pos.z = 45;
         Pos = Camera.main.ScreenToWorldPoint(Pos);
