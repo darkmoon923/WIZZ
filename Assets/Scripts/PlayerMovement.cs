@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Magnitude", movement.magnitude);*/
 
         transform.position = transform.position + movement * Time.deltaTime;
+        
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -35,11 +36,14 @@ public class PlayerMovement : MonoBehaviour
     
     private void Shooting()
     {
+
+        float ArrowSpeed = 15.0f;
         Vector2 PlayerFacing = FrontSight.transform.position - transform.position;
         PlayerFacing.Normalize();
-        Debug.Log("Fire1");
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        arrow.GetComponent<Rigidbody2D>().velocity = PlayerFacing * 20;
+        ControlArrow ArrowScript = arrow.GetComponent<ControlArrow>();
+        ArrowScript.Velocity = PlayerFacing * ArrowSpeed;
+        ArrowScript.Shooter = gameObject;
         arrow.transform.Rotate(0.0f, 0.0f, Mathf.Atan2(PlayerFacing.y, PlayerFacing.x) * Mathf.Rad2Deg);
         Destroy(arrow, 2.5f);
     }

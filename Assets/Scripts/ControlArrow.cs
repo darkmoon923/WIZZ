@@ -5,7 +5,8 @@ using UnityEngine;
 public class ControlArrow : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject arrow;
+    public Vector2 Velocity = new Vector2(0.0f, 0.0f);
+    public GameObject Shooter;
     void Start()
     {
         
@@ -14,16 +15,35 @@ public class ControlArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float Timer = 0;
-        if (Input.GetButtonDown("Fire1"))
+        Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 NewPosition = CurrentPosition + Velocity * Time.deltaTime;
+
+        Debug.DrawLine(CurrentPosition, NewPosition, Color.red);
+        
+        RaycastHit2D[] Hits = Physics2D.LinecastAll(CurrentPosition, NewPosition);
+
+        foreach(RaycastHit2D hit in Hits)
         {
-            arrow.GetComponent<Collider2D>().enabled = false;
-            Timer += Time.deltaTime;
-            while (Timer == 0.1) 
+            GameObject other = hit.collider.gameObject;
+            if(other != Shooter)
             {
-                arrow.GetComponent<Collider2D>().enabled = true;
-                Timer = 0;
+                if (other.CompareTag("Player"))
+                {
+                    Destroy(gameObject);
+                    Debug.Log(other.name);
+                    break;
+                }
+
+                if (other.CompareTag("Wall"))
+                {
+                    Destroy(gameObject);
+                    break;
+                }
             }
+
+            
         }
+
+        transform.position = NewPosition;
     }
 }
