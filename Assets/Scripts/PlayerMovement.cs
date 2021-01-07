@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public GameObject arrowPrefab;
     public GameObject FrontSight;
+    private const float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal")*5, Input.GetAxis("Vertical")*5, 0.0f);
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal")*speed, Input.GetAxis("Vertical")*speed, 0.0f);
 
         
 

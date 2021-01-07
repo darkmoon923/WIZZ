@@ -7,6 +7,7 @@ public class ControlArrow : MonoBehaviour
     // Start is called before the first frame update
     public Vector2 Velocity = new Vector2(0.0f, 0.0f);
     public GameObject Shooter;
+    public GameObject Monster;
     void Start()
     {
         
@@ -30,7 +31,6 @@ public class ControlArrow : MonoBehaviour
                 if (other.CompareTag("Player"))
                 {
                     Destroy(gameObject);
-                    Debug.Log(other.name);
                     break;
                 }
 
@@ -39,11 +39,15 @@ public class ControlArrow : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 }
+
+                if (other.CompareTag("Monster"))
+                {
+                    Destroy(gameObject);
+                    Destroy(other);
+                    break;
+                }
             }
-
-            
         }
-
         transform.position = NewPosition;
     }
 }
