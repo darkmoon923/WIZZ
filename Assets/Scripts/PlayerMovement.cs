@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -32,12 +33,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Shooting();
         }
-        
+
     }
-    
+
     private void Shooting()
     {
-
         float ArrowSpeed = 15.0f;
         Vector2 PlayerFacing = FrontSight.transform.position - transform.position;
         PlayerFacing.Normalize();

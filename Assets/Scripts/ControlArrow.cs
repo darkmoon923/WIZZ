@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlArrow : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class ControlArrow : MonoBehaviour
                 if (other.CompareTag("Player"))
                 {
                     Destroy(gameObject);
+                    Debug.Log(other);
                     break;
                 }
 
@@ -46,6 +48,7 @@ public class ControlArrow : MonoBehaviour
                     Destroy(other);
                     break;
                 }
+                
             }
         }
         transform.position = NewPosition;
