@@ -96,4 +96,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterPrefab: {fileID: 1857377878719117647, guid: a3c9e2ec27110934eafd831e22e1d3bf, type: 3}
-  HolePrefab: {fileID: 1496393825844057595}
