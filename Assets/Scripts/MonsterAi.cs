@@ -7,6 +7,7 @@ public class MonsterAi : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5.0f;
     private Transform target;
+    public int health = 3;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -16,5 +17,14 @@ public class MonsterAi : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+       if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+    void HitByRay()
+    {
+        health -= 1;
     }
 }

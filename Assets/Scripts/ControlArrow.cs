@@ -9,8 +9,11 @@ public class ControlArrow : MonoBehaviour
     public Vector2 Velocity = new Vector2(0.0f, 0.0f);
     public GameObject Shooter;
     public GameObject Monster;
+    
+    
     void Start()
     {
+        GetComponent<MonsterAi>();
         
     }
 
@@ -45,7 +48,7 @@ public class ControlArrow : MonoBehaviour
                 if (other.CompareTag("Monster"))
                 {
                     Destroy(gameObject);
-                    Destroy(other);
+                    hit.transform.SendMessage("HitByRay");
                     break;
                 }
                 
