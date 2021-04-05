@@ -20,6 +20,7 @@ public class MonsterAi : MonoBehaviour
        if (health <= 0)
         {
             Destroy(gameObject);
+            target.transform.SendMessage("MmonsterKilled");
         }
         
     }

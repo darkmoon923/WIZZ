@@ -49,6 +49,7 @@ public class ControlArrow : MonoBehaviour
                 {
                     Destroy(gameObject);
                     hit.transform.SendMessage("HitByRay");
+                   
                     break;
                 }
                 
