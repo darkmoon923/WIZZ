@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
     public GameObject arrowPrefab;
     public GameObject FrontSight;
+    public Text KillNum;
     private const float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-       
+        GlobalData.score = 0;
     }
 
     // Update is called once per frame
@@ -32,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shooting();
+        }
+
+        if(Input.GetKeyDown("k"))
+        {
+            SceneManager.LoadScene(3);
+            Cursor.visible = true;
         }
 
     }

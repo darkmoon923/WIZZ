@@ -31,4 +31,9 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void respawn()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

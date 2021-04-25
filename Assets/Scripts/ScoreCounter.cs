@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class killCounter : MonoBehaviour
+public class ScoreCounter : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text score;
+    public Text Finalscore;
     void Start()
     {
 
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void MmonsterKilled()
-    {
-        GlobalData.score += 1;
-        score.text = GlobalData.score.ToString();
+        Finalscore.text = GlobalData.score.ToString();
     }
 }
+

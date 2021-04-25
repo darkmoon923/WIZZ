@@ -2095,6 +2095,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   arrowPrefab: {fileID: 2346157627493394180, guid: bcaf3d3298062e64eb7a977d33f6e454, type: 3}
   FrontSight: {fileID: 1618177811}
+  KillNum: {fileID: 0}
 --- !u!95 &2049953900
 Animator:
   serializedVersion: 3
@@ -2173,8 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e59727cfe998f4b9c26197ebb3f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KillNum: {fileID: 1368281688}
-  Number: 0
+  score: {fileID: 1368281688}
 --- !u!1001 &1923355019179541370
 PrefabInstance:
   m_ObjectHideFlags: 0
