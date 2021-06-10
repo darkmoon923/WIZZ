@@ -22,7 +22,6 @@ public class MonsterAi : MonoBehaviour
             Destroy(gameObject);
             target.transform.SendMessage("MmonsterKilled");
         }
-        
     }
     void HitByRay()
     {
