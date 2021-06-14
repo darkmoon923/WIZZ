@@ -9,7 +9,7 @@ public class FrontSight : MonoBehaviour
     public GameObject arrowPrefab;
     void Start()
     {
-        
+       Cursor.visible = false; 
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class FrontSight : MonoBehaviour
     {
         Aim();
 
-        Cursor.visible = false;
+        
     }
    private void Aim()
     {
