@@ -5,11 +5,13 @@ using System.Diagnostics;
 
 public class Hole : MonoBehaviour
 {
+   // public Animator monsterAnimator;
     public GameObject MonsterPrefab;
     private Stopwatch stopwatch;
     // Start is called before the first frame update
     void Start()
     {
+       // monsterAnimator = MonsterPrefab.GetComponentInChildren<Animator>();
         stopwatch = new Stopwatch();
         stopwatch.Start();
     }

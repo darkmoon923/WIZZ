@@ -1,12 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class BackToMenu : MonoBehaviour
+public class facing : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject player;
     void Start()
     {
         
@@ -15,11 +14,6 @@ public class BackToMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void Back()
-    {
-        SceneManager.LoadScene(0);
+       
     }
 }

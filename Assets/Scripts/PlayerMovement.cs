@@ -7,26 +7,37 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
+    //public Animator shootAnimator;
     public GameObject arrowPrefab;
     public GameObject FrontSight;
     public Text KillNum;
+    public GameObject player;
     private const float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
         GlobalData.score = 0;
+        GlobalData.facingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal")*speed, Input.GetAxis("Vertical")*speed, 0.0f);
+        if (player.transform.position.x > Camera.main.ScreenToWorldPoint(Input.mousePosition).x) 
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            GlobalData.facingRight = false;
+            Debug.Log("0");
+        }
 
-        
-
-        /*animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Magnitude", movement.magnitude);*/
+        if (player.transform.position.x < Camera.main.ScreenToWorldPoint(Input.mousePosition).x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            GlobalData.facingRight = true;
+            Debug.Log("1");
+        }
+        animator.SetBool("attack", Input.GetButtonDown("Fire1"));
 
         transform.position = transform.position + movement * Time.deltaTime;
         

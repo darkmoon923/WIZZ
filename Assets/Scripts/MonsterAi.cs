@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MonsterAi : MonoBehaviour
 {
     // Start is called before the first frame update
+    //public Animator monsterAnimator;
     public float speed = 5.0f;
     private Transform target;
     public int health = 3;
@@ -18,8 +19,18 @@ public class MonsterAi : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-       if (health <= 0)
+        if(gameObject.transform.position.x > target.position.x)
         {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        if (gameObject.transform.position.x < target.position.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        if (health <= 0)
+        {
+            //monsterAnimator.Play("slimeDie", -1, 0);+
+           // monsterAnimator = gameObject.GetComponentInChildren<Animator>();
             Destroy(gameObject);
             target.transform.SendMessage("MmonsterKilled");
         }

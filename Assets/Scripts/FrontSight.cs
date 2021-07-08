@@ -17,11 +17,10 @@ public class FrontSight : MonoBehaviour
     {
         Aim();
 
-        
     }
    private void Aim()
     {
-        
+
         var Pos = Input.mousePosition;
         Pos.z = 45;
         Pos = Camera.main.ScreenToWorldPoint(Pos);
