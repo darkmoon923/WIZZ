@@ -8,6 +8,7 @@ public class Hole : MonoBehaviour
    // public Animator monsterAnimator;
     public GameObject MonsterPrefab;
     private Stopwatch stopwatch;
+   // public Animator monsterAnimation;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +23,10 @@ public class Hole : MonoBehaviour
         if(stopwatch.Elapsed.Seconds >= 5)
         {
             Instantiate(MonsterPrefab, transform.position, Quaternion.identity);
+           // monsterAnimation = gameObject.GetComponentInChildren<Animator>();
             stopwatch.Reset();
             stopwatch.Start();
         }
-        
-        
         
     }
 }

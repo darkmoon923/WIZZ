@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 613445290}
   - component: {fileID: 613445289}
   - component: {fileID: 613445292}
+  - component: {fileID: 613445293}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -283,6 +284,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9040808b0458e1409889b2278c0477b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &613445293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613445288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47110c75682677459fff69ef477aad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &630031536
@@ -547,9 +560,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 613445292}
-        m_TargetAssemblyTypeName: BackToMenu, Assembly-CSharp
-        m_MethodName: Back
+      - m_Target: {fileID: 613445293}
+        m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

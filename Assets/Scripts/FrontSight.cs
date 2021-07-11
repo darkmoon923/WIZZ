@@ -16,7 +16,6 @@ public class FrontSight : MonoBehaviour
     void Update()
     {
         Aim();
-
     }
    private void Aim()
     {

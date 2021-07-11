@@ -41,9 +41,12 @@ public class MonsterAi : MonoBehaviour
         health -= 1;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        SceneManager.LoadScene(3);
-        Cursor.visible = true;
+        if (collider2D.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(3);
+            Cursor.visible = true;
+        }
     }
 }
