@@ -7,9 +7,10 @@ public class MonsterAi : MonoBehaviour
 {
     // Start is called before the first frame update
     //public Animator monsterAnimator;
-    public float speed = 5.0f;
+    private float speed = 4.0f;
     private Transform target;
-    public int health = 3;
+    public int Health { get; set; } = 3;
+    public bool HasDied { get; set; } = false;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -27,26 +28,34 @@ public class MonsterAi : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        if (health <= 0)
+        if (Health <= 0 && !HasDied)
         {
-            //monsterAnimator.Play("slimeDie", -1, 0);+
-           // monsterAnimator = gameObject.GetComponentInChildren<Animator>();
-            Destroy(gameObject);
-            target.transform.SendMessage("MmonsterKilled");
+            HasDied = true;
+            StartCoroutine(PlayDeathAnimationThenDestory());
+            KillCounter.Instance.MonsterKilled();
         }
+        speed = GlobalData.Score / 10 + 2;
     }
 
-    void HitByRay()
-    {
-        health -= 1;
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.CompareTag("Player"))
+        if (collider2D.CompareTag("Player") && !HasDied)
         {
             SceneManager.LoadScene(3);
             Cursor.visible = true;
         }
+    }
+
+    private IEnumerator PlayDeathAnimationThenDestory()
+    {
+        Animator monsterAnimator = GetComponent<Animator>();
+        monsterAnimator.Play("slimeDie", -1, 0);
+        while (!(monsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("slimeDie") && monsterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f))
+        {
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }

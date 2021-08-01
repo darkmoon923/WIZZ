@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalData.score = 0;
-        GlobalData.facingRight = true;
+        GlobalData.Score = 0;
+        GlobalData.FacingRight = true;
     }
 
     // Update is called once per frame
@@ -27,14 +27,14 @@ public class PlayerMovement : MonoBehaviour
         if (player.transform.position.x > Camera.main.ScreenToWorldPoint(Input.mousePosition).x) 
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            GlobalData.facingRight = false;
+            GlobalData.FacingRight = false;
             Debug.Log("0");
         }
 
         if (player.transform.position.x < Camera.main.ScreenToWorldPoint(Input.mousePosition).x)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            GlobalData.facingRight = true;
+            GlobalData.FacingRight = true;
             Debug.Log("1");
         }
         animator.SetBool("attack", Input.GetButtonDown("Fire1"));

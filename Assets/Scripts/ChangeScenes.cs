@@ -17,7 +17,7 @@ public class ChangeScenes : MonoBehaviour
     {
         
     }
-    public void startgame()
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
@@ -32,7 +32,7 @@ public class ChangeScenes : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void respawn()
+    public void Respawn()
     {
         SceneManager.LoadScene(1);
     }
@@ -40,5 +40,10 @@ public class ChangeScenes : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene(4);
     }
 }

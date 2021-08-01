@@ -30,7 +30,7 @@ public class ControlArrow : MonoBehaviour
         foreach(RaycastHit2D hit in Hits)
         {
             GameObject other = hit.collider.gameObject;
-            if(other != Shooter)
+            if (other != Shooter)
             {
                 if (other.CompareTag("Player"))
                 {
@@ -47,10 +47,14 @@ public class ControlArrow : MonoBehaviour
 
                 if (other.CompareTag("Monster"))
                 {
-                    Destroy(gameObject);
-                    hit.transform.SendMessage("HitByRay");
-                   
-                    break;
+                    MonsterAi monster = other.GetComponent<MonsterAi>();
+                    if (!(monster is null) && !monster.HasDied)
+                    {
+                        Destroy(gameObject);
+                        monster.Health--;
+                        break;
+                    }
+                    
                 }
                 
             }

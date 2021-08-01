@@ -182,8 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c104431d6127624c9fa1e4340f651f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  health: 3
+  speed: 4
+  health: 2
+  monsterAnimator: {fileID: 0}
+  HasDied: 0
 --- !u!95 &5913746648618186528
 Animator:
   serializedVersion: 3

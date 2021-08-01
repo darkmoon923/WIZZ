@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: d70f97bd8e499884f8cd7d6639f88c5b
   - enabled: 1
-    path: Assets/Scenes/BasicScenes.unity
+    path: Assets/Scenes/game.unity
     guid: 7fc392ccb0cc64b4eb76b47b9a4e9003
   - enabled: 1
     path: Assets/Scenes/Tips.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gameover.unity
     guid: 5962ee8a93326e246a76624ca0341b4d
+  - enabled: 1
+    path: Assets/Scenes/credit.unity
+    guid: 2c45ce02a8262b7479838d80ed525fcf
   m_configObjects: {}
