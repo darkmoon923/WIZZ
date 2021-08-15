@@ -193,8 +193,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Main programmer :\n darkmoon_923 Anson6118\nArtist : \nCHUEN_HUANG\nSpecial
-    thanks : \npalapapa"
+  m_Text: 'Main programmer:
+
+    Albert-0213 Anson6118
+
+    Artist:
+
+    CHUEN_HUANG
+
+    Special
+    thanks:
+
+    palapapa'
 --- !u!222 &424469469
 CanvasRenderer:
   m_ObjectHideFlags: 0
